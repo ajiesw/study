@@ -14,13 +14,21 @@
     </modules>
 
     <dependencies>
-        <!--jdbc-->
+<!--        &lt;!&ndash;jdbc&ndash;&gt;-->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.21</version>
+            <version>8.0.23</version>
         </dependency>
+        <!--lombok-->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+        </dependency>
+
 
         <!--mybatis-->
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
@@ -36,5 +44,25 @@
             <version>4.11</version>
         </dependency>
     </dependencies>
-    
+    <!--需要在build中配置resources，防止在资源导出时失败-->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 </project>
