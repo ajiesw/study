@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kuer.study.mapper.UserMapper">
+
+    <!--在当前mapper中开始二级缓存-->
+<!--    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"/>-->
+<!--    <cache/>-->
+    <!--使用第三方缓存-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <resultMap id="userMap" type="com.kuer.study.pojo.User">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <insert id="insertUser" parameterType="com.kuer.study.pojo.User">
+        insert into user (name, password) values (#{name}, #{password})
+    </insert>
+    <update id="updateUser" parameterType="com.kuer.study.pojo.User">
+        update user set name = #{name}, password = #{password} where id = #{id}
+    </update>
+    <delete id="deleteUserById">
+        delete from user where id = #{id}
+    </delete>
+
+    <!--可以手动设置缓存 flushCache-->
+    <select id="getUserList" resultType="com.kuer.study.pojo.User" flushCache="true">
+        select * from mybatis.user;
+    </select>
+    <select id="getUserById" resultType="com.kuer.study.pojo.User" parameterType="long">
+        select * from user where id = #{id}
+    </select>
+</mapper>
