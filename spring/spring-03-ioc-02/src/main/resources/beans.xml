@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="com.kuer.study.spring.User">
+        <property name="name" value="wkj"/>
+    </bean>
+    <!--下标的方式有参构建对象-->
+    <bean id="userArg1" class="com.kuer.study.spring.User">
+        <constructor-arg index="0" value="有参下标构造"/>
+    </bean>
+    <!--使用类型的方式构造-->
+    <bean id="userArg2" class="com.kuer.study.spring.User">
+        <constructor-arg type="java.lang.String" value="有参类型构造"/>
+    </bean>
+    <!--直接使用参数名的方式构造-->
+    <bean id="userArg3" class="com.kuer.study.spring.User">
+        <constructor-arg name="name" value="有参参数名构造"/>
+    </bean>
+    <!--配置别名，用别名也可以取出-->
+    <alias name="user" alias="userArg0"/>
+    <!--
+        id： bean 的唯一标识符，变量名
+        class：bean 的类型，全限定名；包名+类名
+        name: bean 的别名 而且可以取多个别名
+        scope: bean 的创建模式 默认单例模式singleton ，prototype原型模式 会创建多个对象
+    -->
+    <bean id="userBean" class="com.kuer.study.spring.User" name="user2 userB,ub;usb">
+        <property name="name" value="wkj"/>
+    </bean>
+</beans>

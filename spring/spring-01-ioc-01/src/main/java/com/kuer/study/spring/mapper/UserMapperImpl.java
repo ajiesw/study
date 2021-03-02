@@ -12,7 +12,7 @@ import java.sql.SQLOutput;
 public class UserMapperImpl implements UserMapper{
     @Override
     public User getUser() {
-        System.out.println("查询用户信息");
+        System.out.println("UserMapperImpl实现类");
         return null;
     }
 }
