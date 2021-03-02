@@ -6,6 +6,7 @@
     <bean id="student" class="com.kuer.study.spring.pojo.Student">
         <property name="name" value="kuer"/>
         <property name="age" value="18"/>
+
     </bean>
 
 </beans>
