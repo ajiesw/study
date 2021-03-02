@@ -10,6 +10,27 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spring</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-01-ioc-01</module>
+    </modules>
 
+    <dependencies>
+        <!--spring核心包-->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.4</version>
+        </dependency>
+        <!--spring jdbc-->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.2.13.RELEASE</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
