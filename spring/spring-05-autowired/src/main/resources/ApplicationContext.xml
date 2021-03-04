@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="cat" class="com.kuer.study.spring.pojo.Cat"/>
+    <bean id="dog" class="com.kuer.study.spring.pojo.Dog"/>
+    <!--
+        byName:会在容器上下文中查找，和自己对象set方法后面的值对应的beanId
+        必须要有beanId否则会报错
+    -->
+    <bean id="people1" class="com.kuer.study.spring.pojo.People" autowire="byName">
+        <property name="name" value="kuer"/>
+    </bean>
+    <!--
+        byType:会在容器上下文中查找，和自己对象属性类型相同的bean
+        必须要有对应类的bean id可以省略 但是如果出现多个相同类型的bean则会报错
+    -->
+    <bean id="people2" class="com.kuer.study.spring.pojo.People" autowire="byType">
+        <property name="name" value="kuer"/>
+    </bean>
+</beans>

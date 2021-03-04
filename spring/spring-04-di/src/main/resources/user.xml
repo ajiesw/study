@@ -8,11 +8,15 @@
     <bean id="user" class="com.kuer.study.spring.pojo.User" p:name="wkj" p:age="24"/>
 
     <!--c命名空间的使用必须要有有参构造器,通过构造器注入 constrict-args-->
-    <bean id="user2" class="com.kuer.study.spring.pojo.User" c:age="18" c:name="wkj1"/>
+    <bean id="user2" class="com.kuer.study.spring.pojo.User" c:age="18" c:name="wkj1" c:address-ref="address"/>
     <!--复合注入,可以直接对属性的属性注入-->
     <bean id="user3" class="com.kuer.study.spring.pojo.User">
+        <property name="address" ref="address"/>
         <property name="address.address" value="复合注入"/>
         <property name="name" value="wkj"/>
         <property name="age" value="14"/>
+    </bean>
+    <bean id="address" class="com.kuer.study.spring.pojo.Address">
+        <property name="address" value="wkjAddress"/>
     </bean>
 </beans>
