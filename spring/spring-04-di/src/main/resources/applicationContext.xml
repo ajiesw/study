@@ -1,12 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <bean id="student" class="com.kuer.study.spring.pojo.Student">
+        <!--普通值注入 value-->
         <property name="name" value="kuer"/>
         <property name="age" value="18"/>
-
+        <!--bean注入 ref-->
+        <property name="address" ref="address"/>
+        <!--数组注入 array-->
+        <property name="books">
+            <array>
+                <value>语文</value>
+                <value>数学</value>
+                <value>英语</value>
+            </array>
+        </property>
+        <!--list注入-->
+        <property name="hobbies">
+            <list>
+                <value>唱</value>
+                <value>跳</value>
+                <value>rap</value>
+                <value>篮球</value>
+            </list>
+        </property>
+        <!--map注入-->
+        <property name="cards">
+            <map>
+                <entry key="学生卡" value="123"/>
+                <entry key="公交卡卡" value="456"/>
+            </map>
+        </property>
+        <!--set注入-->
+        <property name="games">
+            <set>
+                <value>2077</value>
+                <value>Dota2</value>
+            </set>
+        </property>
+        <!--properties注入-->
+        <property name="info">
+            <props>
+                <prop key="学号">789</prop>
+                <prop key="info">cao</prop>
+            </props>
+        </property>
+        <!--null注入-->
+        <property name="wife">
+            <null/>
+        </property>
     </bean>
 
+    <bean id="address" class="com.kuer.study.spring.pojo.Address">
+        <property name="address" value="wkjAddress"/>
+    </bean>
 </beans>
