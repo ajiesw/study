@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--自动注入注解的支持-->
+    <context:annotation-config/>
+
+    <bean id="cat" class="com.kuer.study.spring.pojo.Cat"/>
+
+    <bean id="dog1" class="com.kuer.study.spring.pojo.Dog"/>
+
+    <bean id="dog2" class="com.kuer.study.spring.pojo.Dog"/>
+
+    <bean id="people" class="com.kuer.study.spring.pojo.People"/>
+
+    <bean id="human" class="com.kuer.study.spring.pojo.Human"/>
+
+</beans>
