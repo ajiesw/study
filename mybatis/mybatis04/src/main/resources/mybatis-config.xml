@@ -45,6 +45,6 @@
     </environments>
 
     <mappers>
-        <mapper class="com.kuer.study.mapper.UserMapper"/>
+        <mapper class="com.kuer.study.mapper.SpringUserMapper"/>
     </mappers>
 </configuration>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--DataSource 使用Spring的数据源替换MyBatis的配置 c3p0 dbcp druid
+    使用Spring的JDBC org.springframework.jdbc.datasource.DriverManagerDataSource
+    -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;userUnicode=ture&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root123"/>
+    </bean>
+    <!--SqlSessionFactory-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <!--绑定MyBatis的配置文件-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <!--configuration与configLocation不能同时存在-->
+<!--        <property name="configuration">-->
+<!--            <bean class="org.apache.ibatis.session.Configuration">-->
+<!--                <property name="mapUnderscoreToCamelCase" value="true"/>-->
+<!--                <property name="environment">-->
+<!--                    <bean class="org.apache.ibatis.mapping.Environment">-->
+<!--                        <constructor-arg type="java.lang.String" value="dev"/>-->
+<!--                        <constructor-arg type="org.apache.ibatis.transaction.TransactionFactory" value="org.apache.ibatis.transaction.jdbc.JdbcTransaction"/>-->
+<!--                        <constructor-arg type="javax.sql.DataSource" ref="dataSource"/>-->
+<!--                    </bean>-->
+<!--                </property>-->
+<!--            </bean>-->
+<!--        </property>-->
+    </bean>
+    <!--SqlSessionTemplate就是sqlSession-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <!--只能使用构造器注入，没有set方法-->
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <!--注入Mapper实现类-->
+    <!--方法一 实现接口并注入SqlSessionTemplate-->
+    <bean id="userMapper" class="com.kuer.study.mapper.SpringUserMapperImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
+    <!--方法二 实现接口并继承SqlSessionDaoSupport-->
+    <bean id="userMapper2" class="com.kuer.study.mapper.SpringUserMapper2Impl">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+
+</beans>

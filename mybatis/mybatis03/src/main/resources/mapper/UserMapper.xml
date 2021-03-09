@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.kuer.study.mapper.UserMapper">
+<mapper namespace="com.kuer.study.mapper.SpringUserMapper">
 
     <resultMap id="userMap" type="com.kuer.study.pojo.User">
         <result property="id" column="id"/>

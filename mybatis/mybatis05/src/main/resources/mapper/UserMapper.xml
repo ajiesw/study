@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.kuer.study.mapper.UserMapper">
+<mapper namespace="com.kuer.study.mapper.SpringUserMapper">
 
     <!--在当前mapper中开始二级缓存-->
 <!--    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"/>-->
