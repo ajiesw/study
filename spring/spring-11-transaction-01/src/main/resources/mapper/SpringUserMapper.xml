@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuer.study.spring.mapper.SpringUserMapper">
+    <insert id="addUser" parameterType="User">
+        insert into user (name, password) VALUES (#{name}, #{password})
+    </insert>
+    <update id="updateUser" parameterType="User">
+        update user
+        set name = #{name}, password = #{password}
+        where id = #{id}
+    </update>
+    <delete id="deleteUser" parameterType="User">
+        deletes from user
+        where id = #{id}
+    </delete>
+
+    <select id="queryList" resultType="com.kuer.study.spring.pojo.User">
+        select id, name, password
+        from user
+    </select>
+</mapper>

@@ -14,4 +14,19 @@ public class UserMapperImpl extends SqlSessionDaoSupport implements SpringUserMa
     public List<User> queryList() {
         return getSqlSession().getMapper(SpringUserMapper.class).queryList();
     }
+
+    @Override
+    public void addUser(User user) {
+        getSqlSession().getMapper(SpringUserMapper.class).addUser(user);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        getSqlSession().getMapper(SpringUserMapper.class).updateUser(user);
+    }
+
+    @Override
+    public void deleteUser(User user) {
+        getSqlSession().getMapper(SpringUserMapper.class).deleteUser(user);
+    }
 }

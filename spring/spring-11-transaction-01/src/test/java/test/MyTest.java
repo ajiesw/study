@@ -1,5 +1,6 @@
 package test;
 
+import com.kuer.study.spring.mapper.SpringUserMapper;
 import com.kuer.study.spring.mapper.impl.UserMapperImpl;
 import com.kuer.study.spring.pojo.User;
 import org.junit.Test;
@@ -16,5 +17,13 @@ public class MyTest {
         UserMapperImpl userMapper = context.getBean("userMapper", UserMapperImpl.class);
         List<User> users = userMapper.queryList();
         users.forEach(System.out::println);
+    }
+
+    @Test
+    public void test1(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-bean.xml");
+        SpringUserMapper userMapper = context.getBean("userMapper", SpringUserMapper.class);
+        userMapper.addUser(new User(){{setName("add");setPassword("123");}});
+        userMapper.deleteUser(new User(){{setId(2);}});
     }
 }

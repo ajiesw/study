@@ -7,11 +7,17 @@ import java.util.List;
 /**
  * @author kuer
  */
-public interface SpringUserMapper {
+public interface SpringUserMapper1 {
     /**
      *
      *
      * @return
      */
     List<User> queryList();
+
+    void addUser(User user);
+
+    void updateUser(User user);
+
+    void deleteUser(User user);
 }

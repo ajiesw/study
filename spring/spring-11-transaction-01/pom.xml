@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-11-transaction</artifactId>
+    <artifactId>spring-11-transaction-01</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
