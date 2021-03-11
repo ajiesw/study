@@ -24,6 +24,5 @@ public class MyTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-bean.xml");
         SpringUserMapper userMapper = context.getBean("userMapper", SpringUserMapper.class);
         userMapper.addUser(new User(){{setName("add");setPassword("123");}});
-        userMapper.deleteUser(new User(){{setId(2);}});
     }
 }

@@ -4,21 +4,15 @@ package com.kuer.study.spring.config;
 import com.kuer.study.spring.mapper.SpringUserMapper1;
 import com.kuer.study.spring.mapper.impl.SpringUserMapper1Impl;
 import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.transaction.managed.ManagedTransactionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.config.JtaTransactionManagerFactoryBean;
-import org.springframework.transaction.jta.JtaTransactionManager;
-
-import java.io.IOException;
 
 /**
  * @EnableTransactionManagement 开启spring事务

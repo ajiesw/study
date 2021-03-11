@@ -23,6 +23,7 @@ public class SpringUserMapper1Impl extends SqlSessionDaoSupport implements Sprin
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public void addUser(User user) {
         getSqlSession().getMapper(SpringUserMapper1.class).addUser(user);
+        deleteUser(new User(){{setId(2);}});
     }
 
     @Override
