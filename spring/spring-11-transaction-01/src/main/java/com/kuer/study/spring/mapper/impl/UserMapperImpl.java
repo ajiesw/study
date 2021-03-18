@@ -18,7 +18,7 @@ public class UserMapperImpl extends SqlSessionDaoSupport implements SpringUserMa
     @Override
     public void addUser(User user) {
         getSqlSession().getMapper(SpringUserMapper.class).addUser(user);
-        deleteUser(new User(){{setId(2);}});
+        deleteUser(new User(){{setId(4);}});
     }
 
     @Override

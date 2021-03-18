@@ -12,6 +12,7 @@
     <modules>
         <module>mybatis</module>
         <module>spring</module>
+        <module>spring-mvc</module>
     </modules>
 
     <!--需要在build中配置resources，防止在资源导出时失败-->
