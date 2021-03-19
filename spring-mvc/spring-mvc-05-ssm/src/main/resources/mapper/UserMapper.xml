@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kuer.study.mvc.ssm.mapper.UserMapper">
+    <select id="getList" resultType="com.kuer.study.mvc.ssm.pojo.User" parameterType="com.kuer.study.mvc.ssm.pojo.User">
+        select u.id, u.name, u.password
+        from user u
+        <where>
+            <if test="id != null"> and id = #{id}</if>
+            <if test="name != null"> and name = #{name}</if>
+            <if test="password != null"> and password = #{password}</if>
+        </where>
+    </select>
+</mapper>
