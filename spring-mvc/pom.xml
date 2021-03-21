@@ -18,6 +18,8 @@
         <module>spring-mvc-04-controller</module>
         <module>spring-mvc-04-json</module>
         <module>spring-mvc-05-ssm</module>
+        <module>spring-mvc-06-intercepter</module>
+        <module>spring-mvc-07-file</module>
     </modules>
 
     <properties>
